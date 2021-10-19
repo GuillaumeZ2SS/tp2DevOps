@@ -20,4 +20,4 @@ jobs:
               cache: 'maven'
       #finally build your app with the latest command
       - name: Build and test with Maven
-        run: mvn clean package --file /simple-api
+        run: mvn package --file ./simple-api
