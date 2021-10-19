@@ -42,17 +42,17 @@ jobs:
         # relative path to the place where source code with Dockerfile is located
           context: ./simple-api
           # Note: tags has to be all lower-case
-          tags: ${{secrets.DOCKER_ID}}/tp2DevOps:simple-api
+          tags: ${{secrets.DOCKER_ID}}/tp2devops:simple-api
           push: ${{ github.ref == 'refs/heads/main' }}
       - name: Build image and push database
         uses: docker/build-push-action@v2
         with:
           context: ./database
-          tags: ${{secrets.DOCKER_ID}}/tp2DevOps:database
+          tags: ${{secrets.DOCKER_ID}}/tp2devops:database
           push: ${{ github.ref == 'refs/heads/main' }}
       - name: Build image and push httpd
         uses: docker/build-push-action@v2
         with:
           context: ./httpd
-          tags: ${{secrets.DOCKER_ID}}/tp2DevOps:httpd
+          tags: ${{secrets.DOCKER_ID}}/tp2devops:httpd
           push: ${{ github.ref == 'refs/heads/main' }}
