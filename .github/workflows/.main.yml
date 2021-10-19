@@ -2,7 +2,7 @@ name: CI devops 2021 EPF
 on:
     #to begin you want to launch this job in main and develop
     push:
-    branches: [ main ]
+    watch: [ main ]
     pull_request:
     
 jobs:
@@ -12,10 +12,11 @@ jobs:
             #checkout your github code using actions/checkout@v2.3.3
             - uses: actions/checkout@v2.3.3
             #do the same with another action (actions/setup-java@v2) that enable to setup jdk 11
+            - name: Set up JDK 11
             - uses: actions/setup-java@v2
-                with:
+              with:
                     java-version: '11' # The OpenJDK version to make available on the path
                     architecture: 'x64' # defaults to 'x64'
             #finally build your app with the latest command
             - name: Build and test with Maven
-                run: mvn clean verify --file /simple-api
+              run: mvn clean verify --file /simple-api
