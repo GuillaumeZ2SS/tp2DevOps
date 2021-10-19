@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
               java-version: '11' # The OpenJDK version to make available on the path
-              distribution: "temimurin"
+              distribution: "temurin"
               cache: 'maven'
       #finally build your app with the latest command
       - name: Build and test with Maven
