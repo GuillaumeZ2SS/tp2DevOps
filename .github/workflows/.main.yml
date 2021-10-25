@@ -22,6 +22,8 @@ jobs:
               cache: 'maven'
       #finally build your app with the latest command
       - name: Build and test with Maven
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: mvn -B verify sonar:sonar -Dsonar.projectKey=vojnzsocjn -Dsonar.organization=bsfmra7ymhn1itlajifp -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file ./simple-api/pom.xml
 
   # define job to build and publish docker image
